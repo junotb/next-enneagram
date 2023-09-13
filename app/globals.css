@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+.question:hover + .mark {
+  display: block;
+}
+
+.mark:hover + .question{
+  display: block;
+}
+
+.mark:hover {
+  display: block;
+}
