@@ -25,7 +25,7 @@ function findEnneagramType(answers: Answer[], questions: Question[]): number {
     const question = questionMap[answer.seq];
     if (!question) return;
 
-    const type = question.type
+    const type = question.type;
     const score = answer.answer;
 
     // 기본 유형 점수
