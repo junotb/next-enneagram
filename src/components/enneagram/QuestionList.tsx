@@ -9,7 +9,7 @@ interface QuestionsListProps {
 export default function QuestionList({ questions }: QuestionsListProps) {
   return (
     <>
-      {questions.map((question) => <QuestionCard key={question.seq} seq={question.seq} type={question.type} question={question} />)}
+      {questions.map((question) => <QuestionCard key={question.seq} question={question} />)}
     </>
   );
 }

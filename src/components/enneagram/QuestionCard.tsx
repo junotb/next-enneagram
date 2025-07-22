@@ -2,12 +2,11 @@ import AnswerList from "@/components/enneagram/AnswerList";
 import { useEnneagram } from "@/contexts/EnneagramContext";
 
 interface QuestionCardProps {
-  seq: number;
-  type: number;
   question: Question;
 }
 
-export function QuestionCard({ seq, type, question }: QuestionCardProps) {
+export function QuestionCard({ question }: QuestionCardProps) {
+  const { seq, type } = question;
   const { setAnswers } = useEnneagram();
 
   const handleChange = (seq: number, answer: number) => {
