@@ -14,8 +14,17 @@ export default function Page() {
   const router = useRouter();
 
   const handleSubmit = async () => {
-    const type = await submitAnswers();
-    router.push(`/enneagram/${type}`);
+    try {
+      const type = await submitAnswers();
+      if (!type) {
+        showToast("답변 제출에 실패했습니다.");
+        return;
+      }
+      router.push(`/enneagram/${type}`);
+    } catch (error) {
+      console.error("답변 제출 중 오류 발생:", error);
+      showToast("답변 제출 중 오류가 발생했습니다.");
+    }
   };
 
   const handleNext = () => {

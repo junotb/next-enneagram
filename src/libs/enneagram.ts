@@ -1,3 +1,5 @@
+const ENNEAGRAM_TYPES = 9;
+
 /**
  * 채점 함수: 사용자 응답 기반으로 Enneagram 유형 점수 계산
  * @param {Answer[]} answers - 응답 데이터
@@ -8,7 +10,7 @@ function findEnneagramType(answers: Answer[], questions: Question[]): number {
   const scores: Record<number, number> = {};
 
   // 초기화
-  for (let i = 1; i <= 9; i++) {
+  for (let i = 1; i <= ENNEAGRAM_TYPES; i++) {
     scores[i] = 0;
   }
 
