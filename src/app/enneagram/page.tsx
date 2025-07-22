@@ -6,14 +6,27 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Loader from "@/components/Loader";
 import { useEnneagram } from "@/contexts/EnneagramContext";
+import { useToast } from "@/hooks/useToast";
 
 export default function Page() {
-  const { questionPage, currentPage, setCurrentPage, submitAnswers } = useEnneagram();
+  const { questionPage, currentPage, answers, setCurrentPage, submitAnswers } = useEnneagram();
+  const { showToast, Toast } = useToast();
   const router = useRouter();
 
   const handleSubmit = async () => {
     const type = await submitAnswers();
     router.push(`/enneagram/${type}`);
+  };
+
+  const handleNext = () => {
+    const currentQuestions = questionPage[currentPage];
+    const currentAnswers = new Set(answers.map(answer => answer.seq));
+    const allAnswered = currentQuestions.every(question => currentAnswers.has(question.seq));
+    if (!allAnswered) {
+      showToast("모든 질문에 답변해주세요.");
+      return;
+    }
+    setCurrentPage(currentPage + 1);
   };
 
   return (
@@ -28,8 +41,8 @@ export default function Page() {
                 ? (
                 <button
                     type="button"
-                    className="border border-gray-400 w-full h-12 bg-white rounded shadow-xl"
-                    onClick={() => setCurrentPage(currentPage + 1)}
+                    className="px-4 py-2 w-full h-12 leading-9 bg-gray-500 hover:bg-gray-600 text-white rounded shadow-xl"
+                    onClick={handleNext}
                   >
                     다음 질문
                   </button>
@@ -37,7 +50,7 @@ export default function Page() {
                 : (
                   <button
                     type="button"
-                    className="border border-gray-400 w-full h-12 bg-white rounded shadow-xl"
+                    className="px-4 py-2 w-full h-12 leading-9 bg-gray-500 hover:bg-gray-600 text-white rounded shadow-xl"
                     onClick={handleSubmit}
                   >
                     결과 제출
@@ -46,6 +59,7 @@ export default function Page() {
               }
             </div>
         }
+        {Toast}
       </main>
       <Footer />
     </div>

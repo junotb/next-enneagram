@@ -1,7 +1,9 @@
+import Image from "next/image";
+
 export default function Loader() {
   return (
     <div className="flex justify-center items-center w-full h-full">
-      <img
+      <Image
         src="/loader.svg"
         alt="Loading"
         width={50}
