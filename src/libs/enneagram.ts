@@ -29,7 +29,7 @@ export function findEnneagramType(answers: Answer[], questions: Question[]): num
     const score = answer.answer;
 
     // 기본 유형 점수
-    scores[type] += score * 1.0;
+    scores[type] += score;
   });
 
   // 정렬
