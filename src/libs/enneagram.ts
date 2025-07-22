@@ -6,7 +6,7 @@ const ENNEAGRAM_TYPES = 9;
  * @param {Question[]} questions - 질문 데이터
  * @returns {number} 결과 Enneagram 유형 (1-9)
  */
-function findEnneagramType(answers: Answer[], questions: Question[]): number {
+export function findEnneagramType(answers: Answer[], questions: Question[]): number {
   const scores: Record<number, number> = {};
 
   // 초기화
@@ -39,5 +39,3 @@ function findEnneagramType(answers: Answer[], questions: Question[]): number {
 
   return sortedTypes[0].type;
 }
-
-export default findEnneagramType;
