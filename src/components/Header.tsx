@@ -9,7 +9,7 @@ export default function Header() {
       </div>
       <nav className="flex space-x-4">
         <Link href="/" className="text-gray-500 hover:text-gray-600 font-semibold hover:underline">홈</Link>
-        <Link href="/enneagram" className="text-gray-500 hover:text-gray-600 font-semibold hover:underline">애니어그램 테스트</Link>
+        <Link href="/enneagram" className="text-gray-500 hover:text-gray-600 font-semibold hover:underline">에니어그램 테스트</Link>
       </nav>
     </header>
   );
