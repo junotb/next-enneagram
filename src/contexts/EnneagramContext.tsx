@@ -89,7 +89,7 @@ export const EnneagramProvider = ({ children }: { children: React.ReactNode }) =
 export function useEnneagram(): EnneagramContextType {
   const context = useContext(EnneagramContext);
   if (!context) {
-    throw new Error("useEnneagra은 EnneagramProvider 내에서만 사용할 수 있습니다.");
+    throw new Error("useEnneagram은 EnneagramProvider 내에서만 사용할 수 있습니다.");
   }
   return context;
 }
