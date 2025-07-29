@@ -7,7 +7,7 @@
 - `EnneagramContext`를 사용한 상태 관리
 
 ## 기술 스택
-- **프레임워크**: Next.js 15.3.3
+ - **프레임워크**: Next.js 15.4.2
 - **언어**: TypeScript
 - **스타일**: Tailwind CSS
 - **API 통신**: Axios

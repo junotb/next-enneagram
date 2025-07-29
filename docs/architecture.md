@@ -7,4 +7,4 @@
 - **contexts**: `EnneagramContext`에서 질문과 응답 상태를 관리합니다.
 - **libs**: 순수 로직과 데이터(JSON) 파일을 보관하며, 유형 계산을 담당하는 `findEnneagramType` 함수가 포함됩니다.
 
-Next.js 13+의 App Router 구조를 사용하기 때문에 폴더 기반으로 API와 UI가 분리되어 있습니다.
+Next.js 15+의 App Router 구조를 사용하기 때문에 폴더 기반으로 API와 UI가 분리되어 있습니다.
