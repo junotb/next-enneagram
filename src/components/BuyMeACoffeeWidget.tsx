@@ -13,7 +13,7 @@ export default function BuyMeACoffeeWidget() {
         rel="noopener noreferrer"
       >
         <Image
-          src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=junotb&button_colour=6B7280&font_colour=ffffff&font_family=Lato&outline_colour=374151&coffee_colour=ffffff"
+          src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=junotb&button_colour=99a1af&font_colour=ffffff&font_family=Lato&outline_colour=374151&coffee_colour=ffffff"
           alt="Buy Me a Coffee"
           width={200}
           height={50}
