@@ -29,7 +29,7 @@ export default function Header() {
         <Link
           href="/"
           onClick={closeMenu}
-          className="text-gray-500 active:bg-gray-600 hover:bg-gray-600 font-semibold active:underline hover:underline"
+          className="text-gray-500 active:text-gray-600 hover:text-gray-600 font-semibold active:underline hover:underline"
           aria-label="홈"
         >
           홈
@@ -37,7 +37,7 @@ export default function Header() {
         <Link
           href="/enneagram"
           onClick={closeMenu}
-          className="text-gray-500 active:bg-gray-600 hover:bg-gray-600 font-semibold active:underline hover:underline"
+          className="text-gray-500 active:text-gray-600 hover:text-gray-600 font-semibold active:underline hover:underline"
           aria-label="에니어그램 테스트"
         >
           에니어그램 테스트
@@ -58,20 +58,20 @@ export default function Header() {
       <button
         type="button"
         onClick={toggleMenu}
-        className="md:hidden text-gray-500 active:bg-gray-600 hover:bg-gray-600 focus:outline-none"
+        className="md:hidden text-gray-500 active:text-gray-600 hover:text-gray-600 focus:outline-none"
         aria-label="메뉴 열기"
         aria-expanded={isMenuOpen}
       >
         <Image src="/bars-3.svg" alt="Menu" width={24} height={24} />
       </button>
-      <nav className={clsx("absolute top-16 right-0 flex flex-col justify-center items-center w-full bg-white shadow-xl transition-all duration-300 ease-in-out", {
+      <nav className={clsx("absolute top-16 right-0 flex md:hidden flex-col justify-center items-center w-full bg-white shadow-xl transition-all duration-300 ease-in-out", {
         "opacity-100": isMenuOpen,
         "opacity-0 pointer-events-none": !isMenuOpen
       })}>
         <Link
           href="/"
           onClick={closeMenu}
-          className="py-2 text-gray-500 active:bg-gray-600 hover:bg-gray-600 font-semibold active:underline hover:underline"
+          className="py-2 text-gray-500 active:text-gray-600 hover:text-gray-600 font-semibold active:underline hover:underline"
           aria-label="홈"
         >
           홈
@@ -79,7 +79,7 @@ export default function Header() {
         <Link
           href="/enneagram"
           onClick={closeMenu}
-          className="py-2 text-gray-500 active:bg-gray-600 hover:bg-gray-600 font-semibold active:underline hover:underline"
+          className="py-2 text-gray-500 active:text-gray-600 hover:text-gray-600 font-semibold active:underline hover:underline"
           aria-label="에니어그램 테스트"
         >
           에니어그램 테스트
