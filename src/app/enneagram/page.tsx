@@ -50,7 +50,7 @@ export default function Page() {
                 ? (
                 <button
                     type="button"
-                    className="px-4 py-2 w-full h-12 leading-9 bg-gray-500 hover:bg-gray-600 text-white rounded shadow-xl"
+                    className="px-4 py-2 w-full h-12 leading-9 bg-gray-500 active:bg-gray-600 hover:bg-gray-600 text-white rounded-lg shadow-xl"
                     onClick={handleNext}
                   >
                     다음 질문
@@ -59,7 +59,7 @@ export default function Page() {
                 : (
                   <button
                     type="button"
-                    className="px-4 py-2 w-full h-12 leading-9 bg-gray-500 hover:bg-gray-600 text-white rounded shadow-xl"
+                    className="px-4 py-2 w-full h-12 leading-9 bg-gray-500 active:bg-gray-600 hover:bg-gray-600 text-white rounded-lg shadow-xl"
                     onClick={handleSubmit}
                   >
                     결과 제출
