@@ -23,7 +23,7 @@ export function QuestionCard({ question }: QuestionCardProps) {
   };
 
   return (
-    <div className="flex flex-col gap-4 border border-gray-400 p-4 rounded shadow-xl">
+    <div className="flex flex-col gap-4 border border-gray-400 p-4 rounded-lg shadow-xl">
       {question.question}
       <AnswerList seq={seq} onChange={handleChange} />
     </div>
