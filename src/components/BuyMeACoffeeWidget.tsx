@@ -1,8 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-
 export default function BuyMeACoffeeWidget() {
   const BMC_TEXT = "Buy me a coffee";
   const BMC_EMOJI = "";
@@ -17,20 +14,20 @@ export default function BuyMeACoffeeWidget() {
   return (
     <div className="flex flex-col items-center space-y-4">
       <p className="text-sm text-gray-600">검사 결과가 도움이 되셨다면, Buy Me a Coffee로 응원해 주세요!</p>
-      <Link
+      <a
         href="https://www.buymeacoffee.com/junotb"
         target="_blank"
         className="flex justify-center w-full h-12"
         rel="noopener noreferrer"
       >
-        <Image
+        <img
           src={BMC_BUTTON_URL}
           alt="Buy Me a Coffee"
           width={200}
           height={48}
           className="w-50 h-12"
         />
-      </Link>
+      </a>
     </div>
   );
 }
