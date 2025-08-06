@@ -1,10 +1,10 @@
 import { EnneagramProvider } from "@/contexts/EnneagramContext";
 
-export default function EnneagramLayout({
+export default function Layout({
   children
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <EnneagramProvider>
       {children}
