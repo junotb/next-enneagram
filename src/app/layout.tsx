@@ -10,8 +10,19 @@ const notoSansKr = Noto_Sans_KR({
 
 export const metadata: Metadata = {
   title: "Next Enneagram",
-  keywords: ["Next.js", "Enneagram", "Personality Test"],
   description: "A Next.js application for Enneagram personality tests",
+  keywords: ["Next.js", "Enneagram", "Personality Test"],
+  manifest: "/manifest.json",
+  themeColor: "#6a7282",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/icons/icon-192.png",
+  },
+  appleWebApp: {
+    capable: true,
+    title: "Next Enneagram",
+    statusBarStyle: "default",
+  },
 };
 
 export default function RootLayout({
