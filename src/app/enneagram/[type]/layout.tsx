@@ -7,7 +7,7 @@ export default function Layout({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex flex-col h-full">
+    <div className="font-sans flex flex-col h-full">
       <Header />
       <main className="relative flex flex-col flex-grow items-center pt-16 pb-12 w-full h-full space-y-4 overflow-y-auto">
         {children }
