@@ -1,18 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
-import Questions from "@/libs/datas/questions.json";
-import { findEnneagramType } from "@/libs/enneagram";
+import AssessmentQuestions from "@/data/assessment-144q.json";
+import { findEnneagramType } from "@/lib/enneagram";
 
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
     const { answers } = data;
 
-    const type = findEnneagramType(answers, Questions);
-    
-    // Here you would typically save the data to a database or perform some action
-    return NextResponse.json({ type }, { status: 200 });
+    const { type, wing, scores } = findEnneagramType(
+      answers,
+      AssessmentQuestions as AssessmentQuestion[]
+    );
+
+    return NextResponse.json({ type, wing, scores }, { status: 200 });
   } catch (error) {
     console.error("Error processing request:", error);
-    return NextResponse.json({ error: "Failed to process request" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to process request" },
+      { status: 500 }
+    );
   }
 }

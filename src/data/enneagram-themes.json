@@ -1,0 +1,283 @@
+{
+  "default": {
+    "color_group": "Grayscale Monotone",
+    "theme": {
+      "light": {
+        "primary": "#6B7280",
+        "secondary": "#9CA3AF",
+        "background": "#F9FAFB",
+        "surface": "#FFFFFF",
+        "text": "#111827",
+        "textMuted": "#6B7280",
+        "gradient": ["#9CA3AF", "#6B7280"]
+      },
+      "dark": {
+        "primary": "#9CA3AF",
+        "secondary": "#6B7280",
+        "background": "#111827",
+        "surface": "#1F2937",
+        "text": "#F9FAFB",
+        "textMuted": "#9CA3AF",
+        "gradient": ["#6B7280", "#4B5563"]
+      }
+    },
+    "metadata": {
+      "mood": "중립적이고 차분한 기본 테마",
+      "css_vars_prefix": "--ennea-default-"
+    }
+  },
+  "types": [
+    {
+      "type_num": 1,
+      "color_group": "Winter Deep",
+      "theme": {
+        "light": {
+          "primary": "#1E3A5F",
+          "secondary": "#2C5282",
+          "background": "#F0F4F8",
+          "surface": "#FFFFFF",
+          "text": "#1A202C",
+          "textMuted": "#4A5568",
+          "gradient": ["#2C5282", "#1E3A5F"]
+        },
+        "dark": {
+          "primary": "#4299E1",
+          "secondary": "#63B3ED",
+          "background": "#0D1117",
+          "surface": "#161B22",
+          "text": "#E6EDF3",
+          "textMuted": "#8B949E",
+          "gradient": ["#3182CE", "#2B6CB0"]
+        }
+      },
+      "metadata": {
+        "mood": "원칙적이고 정직한, 깨끗하고 질서로운 분위기",
+        "css_vars_prefix": "--ennea-type-1-"
+      }
+    },
+    {
+      "type_num": 2,
+      "color_group": "Spring Soft",
+      "theme": {
+        "light": {
+          "primary": "#C86B85",
+          "secondary": "#E8A0B5",
+          "background": "#FDF2F8",
+          "surface": "#FFF5F7",
+          "text": "#3D2C2E",
+          "textMuted": "#6B5B5D",
+          "gradient": ["#E8A0B5", "#C86B85"]
+        },
+        "dark": {
+          "primary": "#F9A8D4",
+          "secondary": "#FBCFE8",
+          "background": "#1C1917",
+          "surface": "#292524",
+          "text": "#FAFAF9",
+          "textMuted": "#A8A29E",
+          "gradient": ["#EC4899", "#DB2777"]
+        }
+      },
+      "metadata": {
+        "mood": "따뜻하고 배려심 깊은, 포용적인 분위기",
+        "css_vars_prefix": "--ennea-type-2-"
+      }
+    },
+    {
+      "type_num": 3,
+      "color_group": "Autumn Warm",
+      "theme": {
+        "light": {
+          "primary": "#B45309",
+          "secondary": "#D97706",
+          "background": "#FFFBEB",
+          "surface": "#FEF3C7",
+          "text": "#292524",
+          "textMuted": "#78716C",
+          "gradient": ["#F59E0B", "#D97706"]
+        },
+        "dark": {
+          "primary": "#F59E0B",
+          "secondary": "#FBBF24",
+          "background": "#1C1917",
+          "surface": "#292524",
+          "text": "#FAFAF9",
+          "textMuted": "#A8A29E",
+          "gradient": ["#FBBF24", "#F59E0B"]
+        }
+      },
+      "metadata": {
+        "mood": "야망 있고 화려한, 성취감 넘치는 분위기",
+        "css_vars_prefix": "--ennea-type-3-"
+      }
+    },
+    {
+      "type_num": 4,
+      "color_group": "Dramatic Moody",
+      "theme": {
+        "light": {
+          "primary": "#5B21B6",
+          "secondary": "#7C3AED",
+          "background": "#FAF5FF",
+          "surface": "#F5F3FF",
+          "text": "#1E1B4B",
+          "textMuted": "#5B21B6",
+          "gradient": ["#8B5CF6", "#6D28D9"]
+        },
+        "dark": {
+          "primary": "#A78BFA",
+          "secondary": "#C4B5FD",
+          "background": "#0F0A1E",
+          "surface": "#1E1B4B",
+          "text": "#EDE9FE",
+          "textMuted": "#A5B4FC",
+          "gradient": ["#7C3AED", "#5B21B6"]
+        }
+      },
+      "metadata": {
+        "mood": "깊이 있고 신비로운, 감성적인 예술가의 분위기",
+        "css_vars_prefix": "--ennea-type-4-"
+      }
+    },
+    {
+      "type_num": 5,
+      "color_group": "Cool Minimal",
+      "theme": {
+        "light": {
+          "primary": "#475569",
+          "secondary": "#64748B",
+          "background": "#F8FAFC",
+          "surface": "#FFFFFF",
+          "text": "#0F172A",
+          "textMuted": "#64748B",
+          "gradient": ["#64748B", "#475569"]
+        },
+        "dark": {
+          "primary": "#94A3B8",
+          "secondary": "#CBD5E1",
+          "background": "#0F172A",
+          "surface": "#1E293B",
+          "text": "#F1F5F9",
+          "textMuted": "#94A3B8",
+          "gradient": ["#64748B", "#475569"]
+        }
+      },
+      "metadata": {
+        "mood": "지적이고 절제된, 침착한 관찰자의 분위기",
+        "css_vars_prefix": "--ennea-type-5-"
+      }
+    },
+    {
+      "type_num": 6,
+      "color_group": "Earth Steady",
+      "theme": {
+        "light": {
+          "primary": "#92400E",
+          "secondary": "#B45309",
+          "background": "#FFFBEB",
+          "surface": "#FEF3C7",
+          "text": "#292524",
+          "textMuted": "#78716C",
+          "gradient": ["#B45309", "#92400E"]
+        },
+        "dark": {
+          "primary": "#D97706",
+          "secondary": "#F59E0B",
+          "background": "#1C1917",
+          "surface": "#292524",
+          "text": "#FAFAF9",
+          "textMuted": "#A8A29E",
+          "gradient": ["#D97706", "#B45309"]
+        }
+      },
+      "metadata": {
+        "mood": "안정적이고 신뢰할 수 있는, 땅처럼 든든한 분위기",
+        "css_vars_prefix": "--ennea-type-6-"
+      }
+    },
+    {
+      "type_num": 7,
+      "color_group": "Vibrant Playful",
+      "theme": {
+        "light": {
+          "primary": "#EA580C",
+          "secondary": "#F97316",
+          "background": "#FFF7ED",
+          "surface": "#FFEDD5",
+          "text": "#292524",
+          "textMuted": "#78716C",
+          "gradient": ["#FB923C", "#EA580C"]
+        },
+        "dark": {
+          "primary": "#FB923C",
+          "secondary": "#FDBA74",
+          "background": "#1C1917",
+          "surface": "#292524",
+          "text": "#FAFAF9",
+          "textMuted": "#A8A29E",
+          "gradient": ["#FDBA74", "#F97316"]
+        }
+      },
+      "metadata": {
+        "mood": "밝고 경쾌한, 즐거움이 넘치는 분위기",
+        "css_vars_prefix": "--ennea-type-7-"
+      }
+    },
+    {
+      "type_num": 8,
+      "color_group": "Bold Power",
+      "theme": {
+        "light": {
+          "primary": "#B91C1C",
+          "secondary": "#DC2626",
+          "background": "#FEF2F2",
+          "surface": "#FEE2E2",
+          "text": "#1C1917",
+          "textMuted": "#57534E",
+          "gradient": ["#DC2626", "#991B1B"]
+        },
+        "dark": {
+          "primary": "#EF4444",
+          "secondary": "#F87171",
+          "background": "#0C0A09",
+          "surface": "#1C1917",
+          "text": "#FAFAF9",
+          "textMuted": "#A8A29E",
+          "gradient": ["#F87171", "#DC2626"]
+        }
+      },
+      "metadata": {
+        "mood": "강인하고 결단력 있는, 카리스마 넘치는 분위기",
+        "css_vars_prefix": "--ennea-type-8-"
+      }
+    },
+    {
+      "type_num": 9,
+      "color_group": "Soft Serene",
+      "theme": {
+        "light": {
+          "primary": "#4D7C0F",
+          "secondary": "#65A30D",
+          "background": "#F7FEE7",
+          "surface": "#ECFCCB",
+          "text": "#1C1917",
+          "textMuted": "#57534E",
+          "gradient": ["#84CC16", "#65A30D"]
+        },
+        "dark": {
+          "primary": "#84CC16",
+          "secondary": "#A3E635",
+          "background": "#0D0F0A",
+          "surface": "#1A1D16",
+          "text": "#F7FEE7",
+          "textMuted": "#A8A29E",
+          "gradient": ["#A3E635", "#65A30D"]
+        }
+      },
+      "metadata": {
+        "mood": "평화롭고 조화로운, 자연스럽고 편안한 분위기",
+        "css_vars_prefix": "--ennea-type-9-"
+      }
+    }
+  ]
+}
