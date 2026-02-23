@@ -3,12 +3,18 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { createContext } from "react";
-import { chunkArray } from "@/libs/util";
+import { chunkArray } from "@/lib/array-utils";
+import {
+  DRAFT_STORAGE_KEY,
+  SCORES_STORAGE_KEY,
+  WING_STORAGE_KEY,
+} from "@/constants/storage-keys";
 
 interface EnneagramContextType {
   questions: Question[];
   answers: Answer[];
-  enneagrams: Enneagram[];
+  primaryTypes: PrimaryType[];
+  wingAnalysis: WingAnalysisItem[];
   questionPage: Question[][];
   setQuestionPage: React.Dispatch<React.SetStateAction<Question[][]>>;
   currentPage: number;
@@ -19,49 +25,112 @@ interface EnneagramContextType {
 
 const EnneagramContext = createContext<EnneagramContextType | undefined>(undefined);
 
+function loadDraft(): { answers: Answer[]; currentPage: number } | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = localStorage.getItem(DRAFT_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as { answers: Answer[]; currentPage: number };
+    if (!Array.isArray(parsed.answers) || typeof parsed.currentPage !== "number")
+      return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
+function saveDraft(answers: Answer[], currentPage: number) {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.setItem(
+      DRAFT_STORAGE_KEY,
+      JSON.stringify({ answers, currentPage })
+    );
+  } catch {
+    // ignore
+  }
+}
+
+function clearDraft() {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.removeItem(DRAFT_STORAGE_KEY);
+  } catch {
+    // ignore
+  }
+}
+
 export const EnneagramProvider = ({ children }: { children: React.ReactNode }) => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<Answer[]>([]);
-  const [enneagrams, setEnneagrams] = useState<Enneagram[]>([]);
+  const [primaryTypes, setPrimaryTypes] = useState<PrimaryType[]>([]);
+  const [wingAnalysis, setWingAnalysis] = useState<WingAnalysisItem[]>([]);
   const [questionPage, setQuestionPage] = useState<Question[][]>([]);
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
-    /**
-     * 질문지와 에니어그램 유형 정보를 서버에서 가져와서 상태를 초기화합니다.
-     * 질문지는 8개씩 묶어서 페이지로 나누고, 현재 페이지을 0으로 설정합니다.
-     * 에러가 발생하면 빈 배열로 초기화합니다.
-     */
     const fetchData = async (): Promise<void> => {
       try {
-        const [questionsResponse, enneagramResponse] = await Promise.all([
-          axios.get<Question[]>("/api/enneagram/questions"),
-          axios.get<Enneagram[]>("/api/enneagram/enneagrams")
-        ]);
+        const [questionsResponse, primaryResponse, wingResponse] =
+          await Promise.all([
+            axios.get<Question[]>("/api/enneagram/questions"),
+            axios.get<PrimaryType[]>("/api/enneagram/primary-types"),
+            axios.get<WingAnalysisItem[]>("/api/enneagram/wing-analysis")
+          ]);
         const questions = questionsResponse.data;
-        const enneagrams = enneagramResponse.data;
         setQuestions(questions);
-        setEnneagrams(enneagrams);
+        setPrimaryTypes(primaryResponse.data);
+        setWingAnalysis(wingResponse.data);
 
         const chunkedQuestions = chunkArray(questions, 8);
         setQuestionPage(chunkedQuestions);
-        setCurrentPage(0);
+
+        const draft = loadDraft();
+        if (draft && draft.answers.length > 0) {
+          const maxPage = Math.min(
+            draft.currentPage,
+            chunkedQuestions.length - 1
+          );
+          setAnswers(draft.answers);
+          setCurrentPage(maxPage);
+        } else {
+          setCurrentPage(0);
+        }
       } catch (error) {
         console.error("질문지를 불러오는 데 실패했습니다:", error);
         setQuestions([]);
-        setEnneagrams([]);
+        setPrimaryTypes([]);
+        setWingAnalysis([]);
       }
     };
     fetchData();
   }, []);
 
-  /**
-   * 답변을 제출하고 결과를 반환합니다.
-   * @returns {Promise<string>} - 제출된 답변에 대한 에니어그램 유형
-   */
+  useEffect(() => {
+    if (questionPage.length > 0 && answers.length > 0) {
+      saveDraft(answers, currentPage);
+    }
+  }, [answers, currentPage, questionPage.length]);
+
   const submitAnswers = async (): Promise<string> => {
     try {
       const { data } = await axios.post("/api/enneagram/submit", { answers });
+      clearDraft();
+      try {
+        if (data.scores) {
+          sessionStorage.setItem(
+            SCORES_STORAGE_KEY,
+            JSON.stringify(data.scores)
+          );
+        }
+        if (data.wing != null) {
+          sessionStorage.setItem(WING_STORAGE_KEY, String(data.wing));
+        } else {
+          sessionStorage.removeItem(WING_STORAGE_KEY);
+        }
+      } catch {
+        // ignore
+      }
       return data.type;
     } catch (error) {
       console.error("답변을 제출하는 데 실패했습니다:", error);
@@ -73,7 +142,8 @@ export const EnneagramProvider = ({ children }: { children: React.ReactNode }) =
     <EnneagramContext.Provider value={{
       questions,
       answers,
-      enneagrams,
+      primaryTypes,
+      wingAnalysis,
       questionPage,
       setQuestionPage,
       currentPage,

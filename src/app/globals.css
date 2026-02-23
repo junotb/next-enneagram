@@ -1,13 +1,49 @@
 @import "tailwindcss";
+@config "../../tailwind.config.js";
+
+/* Default Enneagram theme (Grayscale) - overridden by EnneagramThemeProvider */
+:root {
+  --theme-primary: #6b7280;
+  --theme-secondary: #9ca3af;
+  --theme-background: #0f172a;
+  --theme-surface: #1e293b;
+  --theme-text: #f8fafc;
+  --theme-text-muted: #94a3b8;
+  --theme-gradient: linear-gradient(135deg, #9ca3af, #6b7280);
+  --img-grayscale: 1;
+}
 
 @theme inline {
   --font-sans: var(--font-noto-sans-kr);
+  --animate-background-position-spin: background-position-spin 3000ms infinite
+    alternate;
+  --animate-gradient: gradient 8s linear infinite;
 }
 
-html, body {
+@keyframes background-position-spin {
+  0% {
+    background-position: top center;
+  }
+  100% {
+    background-position: bottom center;
+  }
+}
+
+@keyframes gradient {
+  to {
+    background-position: var(--bg-size, 300%) 0;
+  }
+}
+
+html,
+body {
   font-family: var(--font-sans);
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease,
+    border-color 0.5s ease;
 }
